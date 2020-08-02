@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <changeSet id="1" author="sheetal">
+        <sql>
+            CREATE TABLE course (
+            id BIGINT NOT NULL AUTO_INCREMENT,
+            name VARCHAR(255) NOT NULL,
+            mentor VARCHAR(255) NOT NULL,
+            technology VARCHAR(255) NOT NULL,
+            description VARCHAR(255) NOT NULL,
+            CONSTRAINT PK_id PRIMARY KEY (id)
+            );
+        </sql>
+        <rollback>
+            DROP TABLE course;
+        </rollback>
+    </changeSet>
+
+   <changeSet id="2" author="sheetal">
+        <sql>
+			INSERT INTO course (name, mentor, technology, description) values ('JAVA-101', 'Vandana', 'JAVA','Java Full stack');
+			INSERT INTO course (name, mentor, technology, description) values ('.NET-101', 'Bikram', '.NET','.Net Full stack');
+			INSERT INTO course (name, mentor, technology, description) values ('JAVA-103', 'Sheetal', 'Agile','Agile Dev');
+        </sql>
+     <rollback>
+         TRUNCATE TABLE course;
+     </rollback>
+    </changeSet>
+</databaseChangeLog>
