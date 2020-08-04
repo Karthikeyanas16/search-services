@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.lti.mod.services.searchservices.model.Technology;
 import com.lti.mod.services.searchservices.model.TechnologyDto;
+import com.lti.mod.services.searchservices.model.User;
 import com.lti.mod.services.searchservices.repository.SearchRepository;
+import com.lti.mod.services.searchservices.repository.UserSearchRepository;
 
 @Service
 @Transactional
@@ -20,10 +22,31 @@ public class SearchServiceImpl implements SearchService {
 
 	@Autowired
 	SearchRepository searchRepository;
+	
+	@Autowired
+	UserSearchRepository userRepo;
 
 	@Override
 	public List<TechnologyDto> findAll() {
-		return searchRepository.findAllData();
+		
+		List list = searchRepository.findAllData();
+		List<TechnologyDto> listdata = new ArrayList<TechnologyDto>();
+		System.out.println("list "+list.toString());
+		Iterator it = list.iterator();
+		
+		while(it.hasNext()) {
+			Object[] object = (Object[]) it.next();
+			TechnologyDto dto = new TechnologyDto();
+			dto.setId((BigInteger) object[0]);
+			dto.setTechnology((String) object[1]);
+			dto.setDescription((String) object[2]);
+			dto.setStatus((String) object[3]);
+			dto.setFees((BigInteger) object[4]);
+			dto.setName((String) object[5]);
+			listdata.add(dto);
+		}
+		
+		return listdata;
 	}
 
 	@Override
@@ -56,13 +79,13 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 	@Override
-	public Object createTechnology(Technology technology) {
-		return searchRepository.save(technology);
+	public User findbyId(String id) {
+		return userRepo.findById(id);
 	}
 
 	@Override
-	public void deleteCourse(BigInteger parseLong) {
-		searchRepository.deleteById(parseLong);
+	public List<User> findAllUsers() {
+		return userRepo.findAll();
 	}
 
 }
