@@ -1,23 +1,16 @@
 package com.lti.mod.services.searchservices.service;
 
+import java.math.BigInteger;
 import java.util.List;
 
-import com.lti.mod.services.searchservices.model.Course;
+import com.lti.mod.services.searchservices.model.Technology;
+import com.lti.mod.services.searchservices.model.TechnologyDto;
 
 public interface SearchService {
 
-	List<Course> findAllbyTechnology(String technology);
-	
-	List<Course> findAllByMentor(String mentor);
-
-	List<Course> findAll();
-
-	Object createCourse(Course course);
-
-	List<Course> findAllbyName(String name);
-
-	void deleteCourse(Long id);
-
-	List<Course> findAllbyMentorandTechnology(String technology, String mentor);
-
+	List<TechnologyDto> findAll();
+	List<Technology> finAllbyTechnology();
+	List<TechnologyDto> findAllbyText(String role, String text);
+	Object createTechnology(Technology technology);
+	void deleteCourse(BigInteger parseLong);
 }
