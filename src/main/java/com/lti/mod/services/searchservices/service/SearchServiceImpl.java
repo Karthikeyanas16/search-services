@@ -4,12 +4,16 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
+import com.lti.mod.services.searchservices.model.Role;
 import com.lti.mod.services.searchservices.model.Technology;
 import com.lti.mod.services.searchservices.model.TechnologyDto;
 import com.lti.mod.services.searchservices.model.User;
@@ -86,6 +90,20 @@ public class SearchServiceImpl implements SearchService {
 	@Override
 	public List<User> findAllUsers() {
 		return userRepo.findAll();
+	}
+
+	@Override
+	public List<User> getUsersByRole(String role) {
+		List<User> userList = null;
+		List<String> enumNames = Stream.of(Role.values())
+                .map(Enum::name)
+                .collect(Collectors.toList());
+		if(role !=null ) {
+			if(enumNames.contains(role)) {
+				userList = userRepo.findByRole(role);
+			}
+		}
+		return userList;
 	}
 
 }

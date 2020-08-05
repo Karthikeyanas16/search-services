@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.mod.services.searchservices.model.Technology;
@@ -62,5 +63,13 @@ public class SearchController {
 		List<User> users = searchService.findAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+	
+    @GetMapping("/service/user/users-by-role")
+    public ResponseEntity<List<User>> getUsersByRole(@RequestParam("role") String role){
+        List<User> userList = searchService.getUsersByRole(role);
+        System.out.println(userList);
+        return new ResponseEntity<>(userList, HttpStatus.OK);
+    }
+	
 	
 }

@@ -13,5 +13,6 @@ public interface SearchService {
 	List<TechnologyDto> findAllbyText(String role, String text);
 	User findbyId(String id);
 	List<User> findAllUsers();
+	List<User> getUsersByRole(String role);
 
 }
