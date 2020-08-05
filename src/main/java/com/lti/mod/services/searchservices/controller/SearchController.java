@@ -1,6 +1,7 @@
 package com.lti.mod.services.searchservices.controller;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,11 +38,7 @@ public class SearchController {
     public ResponseEntity<?> findAllTechnology() {
 		System.out.println("Search Technology service ####");    
 		List<Technology> technologies = searchService.finAllbyTechnology();
-		Map technologyMap = new HashMap<BigInteger, String>();
-		for (Technology technology : technologies) {
-			technologyMap.put(technology.getId(), technology.getTechnology());
-		}
-        return new ResponseEntity<>(technologyMap, HttpStatus.OK);
+        return new ResponseEntity<>(technologies, HttpStatus.OK);
     }
 	
 	@GetMapping("/mentorTechnology/{text}")
