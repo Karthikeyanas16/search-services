@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -83,7 +84,7 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 	@Override
-	public User findbyId(String id) {
+	public Optional<User> findbyId(BigInteger id) {
 		return userRepo.findById(id);
 	}
 
@@ -104,6 +105,11 @@ public class SearchServiceImpl implements SearchService {
 			}
 		}
 		return userList;
+	}
+
+	@Override
+	public Optional<Technology> findTechnology(BigInteger id) {
+		return searchRepository.findById(id);
 	}
 
 }

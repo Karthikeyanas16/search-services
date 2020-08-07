@@ -1,10 +1,8 @@
 package com.lti.mod.services.searchservices.controller;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +40,13 @@ public class SearchController {
         return new ResponseEntity<>(technologies, HttpStatus.OK);
     }
 	
+	@GetMapping("/technology/{id}")
+    public ResponseEntity<?> getTechnology(@PathVariable BigInteger id) {
+		System.out.println("Search getTechnology ####"+id);    
+		Optional<Technology> technology = searchService.findTechnology(id);
+        return new ResponseEntity<>(technology, HttpStatus.OK);
+    }
+	
 	@GetMapping("/mentorTechnology/{text}")
     public ResponseEntity<?> findAllByText(@PathVariable String text) {
 		System.out.println("Search by both ####"+text);    
@@ -50,9 +55,9 @@ public class SearchController {
     }
 	
 	@GetMapping("/user/{id}")
-    public ResponseEntity<?> findAllbyId(@PathVariable String id) {
+    public ResponseEntity<?> findAllbyId(@PathVariable BigInteger id) {
 		System.out.println("Search User ####" +id);    
-		User user = searchService.findbyId(id);
+		Optional<User> user = searchService.findbyId(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 

@@ -7,8 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.lti.mod.services.searchservices.model.Technology;
-import com.lti.mod.services.searchservices.model.TechnologyDto;
-import com.lti.mod.services.searchservices.model.User;
 
 public interface SearchRepository extends JpaRepository<Technology, BigInteger> {
 
