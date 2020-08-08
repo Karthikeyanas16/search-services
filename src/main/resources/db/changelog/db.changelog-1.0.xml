@@ -8,7 +8,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     
-    <changeSet id="1" author="sheetal">
+    <changeSet id="search_services_1" author="sheetal">
         <sql>
 			CREATE TABLE Technology (
 				id BIGINT NOT NULL AUTO_INCREMENT,
@@ -24,7 +24,7 @@
         </rollback>
     </changeSet>
 
-   <changeSet id="2" author="sheetal">
+   <changeSet id="search_services_2" author="sheetal">
         <sql>
 			INSERT INTO Technology (technology, description, Status,Fees) values ('JAVA-101', 'Includes Java core', 'Not Started','500');
 			INSERT INTO Technology (technology, description, Status,Fees) values ('JAVA-102', 'Includes Java core2', 'Not Started','1000');
@@ -37,7 +37,7 @@
     </changeSet>
     
     
-        <changeSet id="3" author="sheetal">
+        <changeSet id="search_services_3" author="sheetal">
         <sql>
 			CREATE TABLE User (
 				id BIGINT NOT NULL AUTO_INCREMENT,
@@ -55,7 +55,7 @@
         </rollback>
     </changeSet>
 
-   <changeSet id="4" author="sheetal">
+   <changeSet id="search_services_4" author="sheetal">
         <sql>
 			INSERT INTO User (email, name, password,role, technology_id, status) values ('sheetal@lntinfotech.com', 'Sheetal', 'test','user',1,0);
 			INSERT INTO User (email, name, password,role, technology_id, status) values ('DJ@lntinfotech.com', 'DJ', 'test','mentor',1,0);
