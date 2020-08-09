@@ -13,9 +13,11 @@ public interface SearchService {
 	List<TechnologyDto> findAll();
 	List<Technology> finAllbyTechnology();
 	List<TechnologyDto> findAllbyText(String role, String text);
-	Optional<User> findbyId(BigInteger id);
+	Optional<User> findbyId(Long id);
 	List<User> findAllUsers();
 	List<User> getUsersByRole(String role);
-	Optional<Technology> findTechnology(BigInteger id);
+	Optional<Technology> findTechnology(Long id);
+	
+	User findStudentUserById(Long id, String role); 
 
 }

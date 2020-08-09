@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.lti.mod.services.searchservices.model.User;
 
-public interface UserSearchRepository extends JpaRepository<User, BigInteger>{
+public interface UserSearchRepository extends JpaRepository<User, Long>{
 
 	User findById(String id);
 

@@ -24,7 +24,7 @@ public class User implements Serializable{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
     @Column
     private String name;
     @Column(unique=true)
@@ -52,10 +52,10 @@ public class User implements Serializable{
 		this.status = status;
 	}
 	
-	public BigInteger getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(BigInteger id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
