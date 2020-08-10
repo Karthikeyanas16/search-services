@@ -26,6 +26,7 @@ public class SearchController {
 	SearchService searchService;
 	
 	public static String mentor_role = "mentor";
+	
 
 	@RequestMapping(value = "/courses", method = RequestMethod.GET)
     public ResponseEntity<?> findAllCourses() {
@@ -41,7 +42,7 @@ public class SearchController {
     }
 	
 	@GetMapping("/technology/{id}")
-    public ResponseEntity<?> getTechnology(@PathVariable BigInteger id) {
+    public ResponseEntity<?> getTechnology(@PathVariable Long id) {
 		System.out.println("Search getTechnology ####"+id);    
 		Optional<Technology> technology = searchService.findTechnology(id);
         return new ResponseEntity<>(technology, HttpStatus.OK);
@@ -55,12 +56,12 @@ public class SearchController {
     }
 	
 	@GetMapping("/user/{id}")
-    public ResponseEntity<?> findAllbyId(@PathVariable BigInteger id) {
+    public ResponseEntity<?> findAllbyId(@PathVariable Long id) {
 		System.out.println("Search User ####" +id);    
 		Optional<User> user = searchService.findbyId(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
+	
 	
 	@GetMapping("/users")
     public ResponseEntity<?> findAllUsers() {

@@ -19,7 +19,7 @@ public class Technology  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private Long id;
     @Column
     private String technology;
     @Column
@@ -43,10 +43,10 @@ public class Technology  implements Serializable{
 	}
 
 
-	public BigInteger getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(BigInteger id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTechnology() {

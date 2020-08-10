@@ -85,7 +85,7 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 	@Override
-	public Optional<User> findbyId(BigInteger id) {
+	public Optional<User> findbyId(Long id) {
 		return userRepo.findById(id);
 	}
 
@@ -109,8 +109,15 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 	@Override
-	public Optional<Technology> findTechnology(BigInteger id) {
+	public Optional<Technology> findTechnology(Long id) {
 		return searchRepository.findById(id);
 	}
+
+	@Override
+	public User findStudentUserById(Long id, String role) {
+		return searchRepository.findStudentUserById(id, role);
+	}
+	
+	
 
 }
