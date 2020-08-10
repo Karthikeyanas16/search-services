@@ -48,6 +48,7 @@ public class SearchServiceImpl implements SearchService {
 			dto.setStatus((String) object[3]);
 			dto.setFees((BigInteger) object[4]);
 			dto.setName((String) object[5]);
+			dto.setMentorId((BigInteger) object[6]);
 			listdata.add(dto);
 		}
 		

@@ -10,7 +10,7 @@ import com.lti.mod.services.searchservices.model.Technology;
 
 public interface SearchRepository extends JpaRepository<Technology, BigInteger> {
 
-	@Query(value = "select t.id,t.technology, t.description,t.Status,t.Fees, c.name " 
+	@Query(value = "select t.id,t.technology, t.description,t.Status,t.Fees, c.name,c.id as mentorId "
 	  +" from Technology t join User c on t.id = c.technology_id where c.status = 0" ,nativeQuery = true)
 	List findAllData();
 

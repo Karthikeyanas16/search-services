@@ -14,7 +14,8 @@ public class TechnologyDto implements Serializable{
     private String Status;
     private BigInteger Fees;
     private String name;
-    
+	private BigInteger mentorId;
+
 	public String getName() {
 		return name;
 	}
@@ -51,7 +52,12 @@ public class TechnologyDto implements Serializable{
 	public void setFees(BigInteger fees) {
 		Fees = fees;
 	}
-    
-    
 
+	public BigInteger getMentorId() {
+		return mentorId;
+	}
+
+	public void setMentorId(BigInteger mentorId) {
+		this.mentorId = mentorId;
+	}
 }
