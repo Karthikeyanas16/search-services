@@ -56,6 +56,23 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 	@Override
+	public List<TechnologyDto> getAllTechnology() {
+		List list = searchRepository.findAllCourses();
+		List<TechnologyDto> listdata = new ArrayList<TechnologyDto>();
+		Iterator it = list.iterator();
+
+		while(it.hasNext()) {
+			Object[] object = (Object[]) it.next();
+			TechnologyDto dto = new TechnologyDto();
+			dto.setId((BigInteger) object[0]);
+			dto.setTechnology((String) object[1]);
+			dto.setDescription((String) object[2]);
+			listdata.add(dto);
+		}
+		return  listdata;
+	}
+
+	@Override
 	public List<Technology> finAllbyTechnology() {
 		return searchRepository.findAll();
 	}

@@ -11,6 +11,7 @@ import com.lti.mod.services.searchservices.model.User;
 public interface SearchService {
 
 	List<TechnologyDto> findAll();
+	List<TechnologyDto> getAllTechnology();
 	List<Technology> finAllbyTechnology();
 	List<TechnologyDto> findAllbyText(String role, String text);
 	Optional<User> findbyId(Long id);

@@ -33,6 +33,12 @@ public class SearchController {
         System.out.println("Search service ####");      
 		return new ResponseEntity<>(searchService.findAll(), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/get/technology", method = RequestMethod.GET)
+    public ResponseEntity<?> getTechnology() {
+        System.out.println("Search service ####");
+        return new ResponseEntity<>(searchService.getAllTechnology(), HttpStatus.OK);
+    }
 	
 	@GetMapping("/technology")
     public ResponseEntity<?> findAllTechnology() {
