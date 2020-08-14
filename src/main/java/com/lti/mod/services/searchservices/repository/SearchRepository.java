@@ -25,7 +25,7 @@ public interface SearchRepository extends JpaRepository<Technology, Long> {
 	@Query(value = "select * from User u where u.id = ?1 and where u.role =?2", nativeQuery = true)
 	User findStudentUserById(Long id, String role);
 
-	@Query(value = "SELECT t.* FROM technology t LEFT JOIN user u ON t.id = u.technology_id WHERE u.technology_id IS NULL", nativeQuery = true)
+	@Query(value = "SELECT t.* FROM technology t LEFT JOIN user u ON t.id = u.technology_id WHERE t.status='Started' and u.technology_id IS NULL", nativeQuery = true)
 	List findAllCourses();
 	
 }
